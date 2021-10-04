@@ -57,16 +57,12 @@ def get_base_2(n: str):
         return n_base_2
 
 def test_get_base_2():
-    assert get_base_2("-123") == "Numar invalid!"
-    assert get_base_2("-12") == "Numar invalid!"
     assert get_base_2("-1") == "Numar invalid!"
     assert get_base_2("0") == "0"
     assert get_base_2("1") == "1"
     assert get_base_2("2") == "10"
-    assert get_base_2("13") == "1101"
-    assert get_base_2("21") == "10101"
-    assert get_base_2("122") == "1111010"
-    assert get_base_2("3213") == "110010001101"
+    assert get_base_2("3") == "1101"
+    assert get_base_2("4") == "10101"
 
 def main():
     shouldRun = True
