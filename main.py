@@ -68,22 +68,25 @@ def test_get_base_2():
     assert get_base_2("122") == "1111010"
     assert get_base_2("3213") == "110010001101"
 
-shouldRun = True
+def main():
+    shouldRun = True
 
-while shouldRun:
-    print("1.Determina daca un numar este antipalindrom")
-    print("2.Transforma un numar dat din baza 10 in baza 2")
-    print("x.Iesire")
-    optiune = input("Selectati optiunea: ")
-    if optiune == "1":
-        test_is_antipalindrome()
-        n = int(input("Dati numarul: "))
-        print(is_antipalindrome(n))
-    elif optiune == "2":
-        test_get_base_2()
-        n = int(input("Dati numarul: "))
-        print(get_base_2(str(n)))
-    elif optiune == "x":
-        shouldRun = False
-    else:
-        print("Optiune gresita! Reincercati!")
+    while shouldRun:
+        print("1.Determina daca un numar este antipalindrom")
+        print("2.Transforma un numar dat din baza 10 in baza 2")
+        print("x.Iesire")
+        optiune = input("Selectati optiunea: ")
+        if optiune == "1":
+            n = int(input("Dati numarul: "))
+            print(is_antipalindrome(n))
+        elif optiune == "2":
+            n = int(input("Dati numarul: "))
+            print(get_base_2(str(n)))
+        elif optiune == "x":
+            shouldRun = False
+        else:
+            print("Optiune gresita! Reincercati!")
+
+test_is_antipalindrome()
+test_get_base_2()
+main()
