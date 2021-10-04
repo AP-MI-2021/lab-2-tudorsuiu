@@ -61,10 +61,11 @@ def test_get_base_2():
     assert get_base_2("0") == "0"
     assert get_base_2("1") == "1"
     assert get_base_2("2") == "10"
-    assert get_base_2("3") == "1101"
-    assert get_base_2("4") == "10101"
+    assert get_base_2("3") == "11"
+    assert get_base_2("4") == "100"
 
 def main():
+
     shouldRun = True
 
     while shouldRun:
