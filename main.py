@@ -99,6 +99,9 @@ def test_get_temp():
 
 
 def main():
+    test_is_antipalindrome()
+    test_get_base_2()
+    test_get_temp()
     should_run = True
     while should_run:
         print("1.Determina daca un numar este antipalindrom")
@@ -121,9 +124,6 @@ def main():
             should_run = False
         else:
             print("Optiune gresita! Reincercati!")
-    test_is_antipalindrome()
-    test_get_base_2()
-    test_get_temp()
 
 
 if __name__ == '__main__':
