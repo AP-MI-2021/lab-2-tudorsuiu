@@ -7,7 +7,6 @@ def is_antipalindrome(n):
     # Un numar negativ nu este niciodata palindrom
     if n < 0:
         return True
-    antipalindrom = True
     cn = n
     nr_cifre = 0
     # Determinam cate cifre are numarul citit
@@ -17,11 +16,11 @@ def is_antipalindrome(n):
     # Determinam daca numarul citit este antipalindrom
     while n > 9:
         if n // (10 ** (nr_cifre - 1)) == n % 10:
-            antipalindrom = False
+            return False
         n = n % (10 ** (nr_cifre - 1))
         n = n // 10
         nr_cifre -= 2
-    return antipalindrom
+    return True
 
 
 def test_is_antipalindrome():
