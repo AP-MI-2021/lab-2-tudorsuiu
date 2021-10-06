@@ -58,11 +58,52 @@ def test_get_base_2():
     assert get_base_2("4") == "100"
 
 
+def get_temp(temp, from_scale, to_scale):
+    """
+    Transforma o temperatura dintr-o scara data intr-o alta scara data
+    :param temp: nr. real
+    :param from_scale: string de o litera
+    :param to_scale: string de o litera
+    :return: transformarea temperaturii date din scara data intr-o alta scara data
+    """
+    from_celsius_to_fahrenheit = 32
+    from_celsius_to_kelvin = 273.15
+    if from_scale == "C" and to_scale == "K":
+        transformation = temp + from_celsius_to_kelvin
+    elif from_scale == "C" and to_scale == "F":
+        transformation = temp * 1.8 + from_celsius_to_fahrenheit
+    elif from_scale == "K" and to_scale == "C":
+        transformation = temp - from_celsius_to_kelvin
+    elif from_scale == "K" and to_scale == "F":
+        transformation_in_celsius = temp - from_celsius_to_kelvin
+        transformation = transformation_in_celsius * 1.8 + from_celsius_to_fahrenheit
+    elif from_scale == "F" and to_scale == "C":
+        transformation = (temp - from_celsius_to_fahrenheit) / 1.8
+    elif from_scale == "F" and to_scale == "K":
+        transformation_in_celsius = (temp - from_celsius_to_fahrenheit) / 1.8
+        transformation = transformation_in_celsius + from_celsius_to_kelvin
+    else:
+        return "Nu se poate transforma in scara data."
+    transformation = round(transformation, 2)
+    return transformation
+
+
+def test_get_temp():
+    assert get_temp(20, "X", "K") == "Nu se poate transforma in scara data."
+    assert get_temp(20, "C", "K") == 293.15
+    assert get_temp(20, "C", "F") == 68.0
+    assert get_temp(20, "K", "C") == -253.15
+    assert get_temp(20, "K", "F") == -423.67
+    assert get_temp(20, "F", "C") == -6.67
+    assert get_temp(20, "F", "K") == 266.48
+
+
 def main():
     should_run = True
     while should_run:
         print("1.Determina daca un numar este antipalindrom")
         print("2.Transforma un numar dat din baza 10 in baza 2")
+        print("3.Transforma o temperatura data intr-o scara data")
         print("x.Iesire")
         optiune = input("Selectati optiunea: ")
         if optiune == "1":
@@ -71,6 +112,11 @@ def main():
         elif optiune == "2":
             n = int(input("Dati numarul: "))
             print(get_base_2(str(n)))
+        elif optiune == "3":
+            temp = float(input("Dati temperatura: "))
+            from_scale = input("Transforma din: ")
+            to_scale = input("Transforma in: ")
+            print(get_temp(temp, from_scale, to_scale))
         elif optiune == "x":
             should_run = False
         else:
@@ -79,4 +125,5 @@ def main():
 
 test_is_antipalindrome()
 test_get_base_2()
+test_get_temp()
 main()
