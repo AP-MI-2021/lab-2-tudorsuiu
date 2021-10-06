@@ -121,9 +121,10 @@ def main():
             should_run = False
         else:
             print("Optiune gresita! Reincercati!")
+    test_is_antipalindrome()
+    test_get_base_2()
+    test_get_temp()
 
 
-test_is_antipalindrome()
-test_get_base_2()
-test_get_temp()
-main()
+if __name__ == '__main__':
+    main()
