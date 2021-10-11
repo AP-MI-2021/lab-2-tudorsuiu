@@ -32,7 +32,7 @@ def get_base_2(n: str) -> str:
     """
     Transforma un numar dat din baza 10 in baza 2
     :param n: sir de caractere
-    :return: numarul n transformat in baza 2
+    :return: numarul n transformat din baza 10 in baza 2
     """
     n_base_2 = ""
     if int(n) == 0:
